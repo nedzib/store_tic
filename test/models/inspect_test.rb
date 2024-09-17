@@ -6,8 +6,11 @@
 #  body              :text
 #  email             :string
 #  end_date          :datetime
+#  hash_finder       :string
+#  phone             :string
 #  revision_date     :datetime
-#  status            :integer
+#  revision_time     :string
+#  status            :integer          default("requested")
 #  status_updated_at :datetime
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null

@@ -10,4 +10,5 @@
 #  updated_at           :datetime         not null
 #
 class Kind < ApplicationRecord
+  monetize :revision_price_cents
 end

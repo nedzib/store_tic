@@ -1,0 +1,63 @@
+<div class="container h-100 d-flex justify-content-center align-items-center mt-5">
+  <div class="row w-100">
+    <div class="col-md-6 offset-md-3">
+      <%= form_for @inspect, url: inspect_create_path, html: { class: 'p-4 border rounded bg-light shadow' } do |form| %>
+
+        <!-- Error Messages (Optional) -->
+        <% if @inspect.errors.any? %>
+          <div id="error_explanation" class="alert alert-danger">
+            <h2><%= pluralize(@inspect.errors.count, "error") %> prohibited this inspect from being saved:</h2>
+            <ul>
+              <% @inspect.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <!-- Kind (Select) -->
+        <div class="mb-3">
+          <%= form.label :kind, "Select Kind", class: 'form-label' %>
+          <%= form.collection_select :kind, Kind.all, :id, :name, { prompt: "Choose a kind" }, { class: 'form-select' } %>
+        </div>
+
+        <!-- Body (Text Area) -->
+        <div class="mb-3">
+          <%= form.label :body, "Description", class: 'form-label' %>
+          <%= form.text_area :body, class: 'form-control' %>
+        </div>
+
+        <!-- Email (Input Field) -->
+        <div class="mb-3">
+          <%= form.label :email, "Email", class: 'form-label' %>
+          <%= form.email_field :email, class: 'form-control', value: @pre_filled_email %>
+        </div>
+
+        <!-- Phone (Input Field) -->
+        <div class="mb-3">
+          <%= form.label :phone, "Phone", class: 'form-label' %>
+          <%= form.text_field :phone, class: 'form-control' %>
+        </div>
+
+        <!-- Revision Date (Date Picker) -->
+        <div class="mb-3">
+          <%= form.label :revision_date, "Revision Date", class: 'form-label' %>
+          <%= form.date_field :revision_date, class: 'form-control', min: (Date.current + 1).to_s, value: (Date.current + 1).to_s %>
+        </div>
+
+
+        <!-- Revision Time (Select) -->
+        <div class="mb-3">
+          <%= form.label :revision_time, "Revision Time", class: 'form-label' %>
+          <%= form.select :revision_time, options_for_select(@times), { prompt: "Choose a time" }, { class: 'form-select' } %>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <%= form.submit "Save Inspect", class: "btn btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

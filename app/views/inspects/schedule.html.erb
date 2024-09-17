@@ -39,12 +39,12 @@
       <div class="text-center">
         <h2>¡Agenda tu cita ahora!</h2>
         <p>Deja tu correo y continua con el proceso.</p>
-        <form>
+        <%= form_with url: form_path, method: :get, local: true do %>
           <div class="mb-3">
-            <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico" required>
+            <%= text_field_tag :email, nil, class: "form-control", placeholder: "Tu correo electrónico", required: true %>
           </div>
           <button type="submit" class="btn btn-light btn-lg">Agendar</button>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>

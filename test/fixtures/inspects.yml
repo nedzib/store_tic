@@ -1,0 +1,30 @@
+# == Schema Information
+#
+# Table name: inspects
+#
+#  id                :bigint           not null, primary key
+#  body              :text
+#  email             :string
+#  end_date          :datetime
+#  revision_date     :datetime
+#  status            :integer
+#  status_updated_at :datetime
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#
+
+one:
+  email: MyString
+  body: MyText
+  status: 1
+  revision_date: 2024-09-17 12:55:17
+  end_date: 2024-09-17 12:55:17
+  status_updated_at: 2024-09-17 12:55:17
+
+two:
+  email: MyString
+  body: MyText
+  status: 1
+  revision_date: 2024-09-17 12:55:17
+  end_date: 2024-09-17 12:55:17
+  status_updated_at: 2024-09-17 12:55:17

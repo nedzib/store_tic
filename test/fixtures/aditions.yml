@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: aditions
+#
+#  id          :bigint           not null, primary key
+#  body        :text
+#  name        :string
+#  price_cents :float
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  price_cents: 1.5
+  body: MyText
+
+two:
+  name: MyString
+  price_cents: 1.5
+  body: MyText

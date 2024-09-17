@@ -1,2 +1,52 @@
-<h1>Inspects#schedule</h1>
-<p>Find me in app/views/inspects/schedule.html.erb</p>
+<div class="container-fluid vh-100 position-relative">
+  <div class="row h-100">
+    <!-- Columna del Carrusel -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center bg-light position-relative">
+      <div id="infoCarousel" class="carousel slide w-75" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="d-block w-100 text-center">
+              <h3>Servicio de reparación a domicilio</h3>
+              <p>Diagnóstico y solución rápida en cualquier tipo de equipo.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="d-block w-100 text-center">
+              <h3>Mantenimiento preventivo</h3>
+              <p>Evita problemas mayores con nuestros servicios regulares.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="d-block w-100 text-center">
+              <h3>Actualización de hardware y software</h3>
+              <p>Mantén tu equipo actualizado con las últimas tecnologías.</p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#infoCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#infoCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Columna del Formulario -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center bg-primary text-white">
+      <div class="text-center">
+        <h2>¡Agenda tu cita ahora!</h2>
+        <p>Deja tu correo y continua con el proceso.</p>
+        <form>
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico" required>
+          </div>
+          <button type="submit" class="btn btn-light btn-lg">Agendar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+

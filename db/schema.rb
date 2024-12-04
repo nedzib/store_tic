@@ -18,8 +18,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_181841) do
     t.string "name"
     t.float "price_cents"
     t.text "body"
+    t.bigint "inspect_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["inspect_id"], name: "index_aditions_on_inspect_id"
   end
 
   create_table "inspects", force: :cascade do |t|
@@ -32,8 +34,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_181841) do
     t.datetime "end_date"
     t.datetime "status_updated_at"
     t.string "hash_finder"
+    t.bigint "kind_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["kind_id"], name: "index_inspects_on_kind_id"
   end
 
   create_table "kinds", force: :cascade do |t|
@@ -47,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_181841) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.boolean "is_superadmin"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -56,4 +61,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_17_181841) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "aditions", "inspects"
+  add_foreign_key "inspects", "kinds"
 end

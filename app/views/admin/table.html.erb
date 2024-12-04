@@ -1,0 +1,38 @@
+<%= render 'admin/navbar' %>
+
+<div class="container mt-5">
+  <div class="row">
+    <% Inspect.statuses.keys.each do |status| %>
+      <div class="col-md-2 mb-4">
+        <h4><%= status.titleize %></h4>
+        <div class="card" style="min-height: 250px;">
+          <div class="card-body">
+            <% @inspects_by_status[status.to_s]&.each do |inspect| %>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">ID: <%= inspect.id %></h5>
+                  <p class="card-text"><%= inspect.email %></p>
+                  <p class="card-text"><%= inspect.phone %></p>
+                  <p class="card-text"><%= inspect.kind.name %></p>
+                  <p class="card-text"><%= inspect.body %></p>
+                  <p class="card-text">Revision Date: <%= inspect.revision_date.strftime('%d %b %Y') %></p>
+                  <p class="card-text">Revision Time: <%= inspect.revision_time %></p>
+                  <p class="card-text">Ultima Actualización: <%= inspect.updated_at.strftime('%d %b %Y') %></p>
+                  <div class="d-flex justify-content-between">
+                    <% unless inspect.status == 'requested' %>
+                      <%= button_to '<-', change_status_path(inspect, status: 'previous'), method: :patch, class: 'btn btn-warning' %>
+                    <% end %>
+                    <% unless inspect.status == 'finished' %>
+                      <%= button_to '->', change_status_path(inspect, status: 'next'), method: :patch, class: 'btn btn-success' %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

@@ -1,0 +1,55 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4>Detalles de la Revisión</h4>
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <strong>Email:</strong>
+            <p><%= @inspect.email %></p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Teléfono:</strong>
+            <p><%= @inspect.phone %></p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Descripción:</strong>
+            <p><%= @inspect.body %></p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Estado:</strong>
+            <p><%= @inspect.status.titleize %></p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Fecha de Revisión:</strong>
+            <p><%= @inspect.revision_date&.strftime("%d/%m/%Y") %></p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Hora de Revisión:</strong>
+            <p><%= @inspect.revision_time %></p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Fecha de Finalización:</strong>
+            <p><%= @inspect.end_date&.strftime("%d/%m/%Y %H:%M:%S") %></p>
+          </div>
+
+          <div class="mb-3">
+            <strong>Hash del Finder:</strong>
+            <p><%= @inspect.hash_finder %></p>
+          </div>
+
+          <%= link_to 'Regresar', root_path, class: 'btn btn-secondary' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

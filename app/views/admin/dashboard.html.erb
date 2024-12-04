@@ -1,0 +1,25 @@
+<%= render 'admin/navbar' %>
+<div class="container mt-5">
+  <div class="row">
+    <!-- Card for Pending Inspects -->
+    <div class="col-md-6">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Inspecciones Pendientes</h5>
+          <p class="card-text"><%= @pending_inspects_count %> inspecciones están pendientes</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card for Finished Inspects in the Current Month -->
+    <div class="col-md-6">
+      <div class="card text-center">
+        <div class="card-body">
+          <h5 class="card-title">Inspecciones Finalizadas Este Mes</h5>
+          <p class="card-text"><%= @finished_inspects_count %> inspecciones se finalizaron este mes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

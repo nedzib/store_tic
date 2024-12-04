@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
+  get 'admin/dashboard'
+  get 'admin/table'
+  get 'admin/receipt'
   devise_for :users
-  get 'dashboard', to: 'inspects#dashboard'
   get 'form', to: 'inspects#schedule_form'
+  get 'show', to: 'inspects#show'
   post 'inspect_create', to: 'inspects#create'
+  patch 'inspects/:id/change_status', to: 'admin#change_status', as: :change_status
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

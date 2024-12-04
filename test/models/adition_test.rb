@@ -8,6 +8,15 @@
 #  price_cents :float
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  inspect_id  :bigint           not null
+#
+# Indexes
+#
+#  index_aditions_on_inspect_id  (inspect_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (inspect_id => inspects.id)
 #
 require "test_helper"
 

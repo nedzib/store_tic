@@ -14,10 +14,18 @@
 #  status_updated_at :datetime
 #  created_at        :datetime         not null
 #  updated_at        :datetime         not null
+#  kind_id           :bigint           not null
+#
+# Indexes
+#
+#  index_inspects_on_kind_id  (kind_id)
+#
+# Foreign Keys
+#
+#  fk_rails_...  (kind_id => kinds.id)
 #
 class Inspect < ApplicationRecord
-  has_one :user
-  has_one :kind
+  belongs_to :kind
   has_many :aditions
 
   # Definición del enum para el status en inglés
@@ -30,9 +38,10 @@ class Inspect < ApplicationRecord
     canceled: 5
   }
 
-  # Callback para actualizar status_updated_at cuando cambie el status
+  # Callbacks
   before_update :set_status_updated_at, if: :will_save_change_to_status?
   before_save :set_hash_finder
+  after_update :set_end_date_if_finished, if: :saved_change_to_status?
 
   private
 
@@ -41,7 +50,18 @@ class Inspect < ApplicationRecord
     self.status_updated_at = Time.current
   end
 
+  # Método para actualizar el campo hash_finder
   def set_hash_finder
+    return if hash_finder.present?
     self.hash_finder = SecureRandom.hex 9
   end
+
+  # Método para establecer end_date cuando el estado sea finished
+  def set_end_date_if_finished
+    if status == "finished" && end_date.nil?
+      self.end_date = Time.current
+      save(validate: false) # Evita la validación al guardar para evitar un loop infinito
+    end
+  end
 end
+

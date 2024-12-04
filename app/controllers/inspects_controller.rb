@@ -40,7 +40,8 @@ class InspectsController < ApplicationController
     end
   end
 
-  def dashboard
+  def show
+    @inspect = Inspect.find_by(hash_finder: params[:hash_finder])
   end
 
   private

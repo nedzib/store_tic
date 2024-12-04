@@ -17,8 +17,8 @@
 
         <!-- Kind (Select) -->
         <div class="mb-3">
-          <%= form.label :kind, "Select Kind", class: 'form-label' %>
-          <%= form.collection_select :kind, Kind.all, :id, :name, { prompt: "Choose a kind" }, { class: 'form-select' } %>
+          <%= form.label :kind_id, "Select Kind", class: 'form-label' %>
+          <%= form.collection_select :kind_id, Kind.all, :id, :name, { prompt: "Choose a kind" }, { class: 'form-select' } %>
         </div>
 
         <!-- Body (Text Area) -->

@@ -10,6 +10,7 @@ class CreateInspects < ActiveRecord::Migration[7.1]
       t.datetime :end_date
       t.datetime :status_updated_at
       t.string :hash_finder
+      t.references :kind, null: false, foreign_key: { to_table: :kinds }
 
       t.timestamps
     end

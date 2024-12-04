@@ -28,4 +28,14 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      inspect: # Nombre del modelo en minúscula
+        statuses:
+          requested: "Solicitado"
+          received: "Recibido"
+          in_progress: "En progreso"
+          waiting_for_client: "Esperando al cliente"
+          finished: "Finalizado"
+          canceled: "Cancelado"
+

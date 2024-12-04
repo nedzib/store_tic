@@ -1,7 +1,13 @@
 <div class="container-fluid vh-100 position-relative">
   <div class="row h-100">
     <!-- Columna del Carrusel -->
-    <div class="col-md-6 d-flex align-items-center justify-content-center bg-light position-relative">
+    <div class="col-md-6 d-flex flex-column align-items-center justify-content-center bg-light position-relative">
+      <!-- Imagen del Logotipo -->
+      <div class="mb-4">
+        <%= image_tag "logo.avif", alt: "Logotipo", class: "img-fluid", style: "min-height: 200px;" %>
+      </div>
+
+      <!-- Carrusel -->
       <div id="infoCarousel" class="carousel slide w-75" data-bs-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -13,7 +19,7 @@
           <div class="carousel-item">
             <div class="d-block w-100 text-center">
               <h3>Mantenimiento preventivo</h3>
-              <p>Evita problemas mayores con nuestros servicios regulares.</p>
+              <p>Evita problemas mayores agendando constantemente nuestros servicios.</p>
             </div>
           </div>
           <div class="carousel-item">
@@ -32,12 +38,19 @@
           <span class="visually-hidden">Siguiente</span>
         </button>
       </div>
+
+      <!-- Botón debajo del Carrusel -->
+      <div class="mt-4">
+        <a href="https://evan674.wixsite.com/website" class="btn btn-primary btn-lg" target="_blank" rel="noopener noreferrer">
+          Tienda
+        </a>
+      </div>
     </div>
 
     <!-- Columna del Formulario -->
     <div class="col-md-6 d-flex align-items-center justify-content-center bg-primary text-white">
       <div class="text-center">
-        <h2>¡Agenda tu cita ahora!</h2>
+        <h2>¡Agenda tu revisión ahora!</h2>
         <p>Deja tu correo y continua con el proceso.</p>
         <%= form_with url: form_path, method: :get, local: true do %>
           <div class="mb-3">

@@ -17,44 +17,44 @@
 
         <!-- Kind (Select) -->
         <div class="mb-3">
-          <%= form.label :kind_id, "Select Kind", class: 'form-label' %>
-          <%= form.collection_select :kind_id, Kind.all, :id, :name, { prompt: "Choose a kind" }, { class: 'form-select' } %>
+          <%= form.label :kind_id, "Seleccionar Tipo", class: 'form-label' %>
+          <%= form.collection_select :kind_id, Kind.all, :id, :name, { prompt: "Seleccione un dispositivo" }, { class: 'form-select' } %>
         </div>
 
         <!-- Body (Text Area) -->
         <div class="mb-3">
-          <%= form.label :body, "Description", class: 'form-label' %>
+          <%= form.label :body, "Descripción del problema", class: 'form-label' %>
           <%= form.text_area :body, class: 'form-control' %>
         </div>
 
         <!-- Email (Input Field) -->
         <div class="mb-3">
-          <%= form.label :email, "Email", class: 'form-label' %>
+          <%= form.label :email, "Correo", class: 'form-label' %>
           <%= form.email_field :email, class: 'form-control', value: @pre_filled_email %>
         </div>
 
         <!-- Phone (Input Field) -->
         <div class="mb-3">
-          <%= form.label :phone, "Phone", class: 'form-label' %>
+          <%= form.label :phone, "Celular", class: 'form-label' %>
           <%= form.text_field :phone, class: 'form-control' %>
         </div>
 
         <!-- Revision Date (Date Picker) -->
         <div class="mb-3">
-          <%= form.label :revision_date, "Revision Date", class: 'form-label' %>
+          <%= form.label :revision_date, "Fecha de revisión", class: 'form-label' %>
           <%= form.date_field :revision_date, class: 'form-control', min: (Date.current + 1).to_s, value: (Date.current + 1).to_s %>
         </div>
 
 
         <!-- Revision Time (Select) -->
         <div class="mb-3">
-          <%= form.label :revision_time, "Revision Time", class: 'form-label' %>
-          <%= form.select :revision_time, options_for_select(@times), { prompt: "Choose a time" }, { class: 'form-select' } %>
+          <%= form.label :revision_time, "Hora de revisión", class: 'form-label' %>
+          <%= form.select :revision_time, options_for_select(@times), { prompt: "Escoge la hora" }, { class: 'form-select' } %>
         </div>
 
         <!-- Submit Button -->
         <div class="text-center">
-          <%= form.submit "Save Inspect", class: "btn btn-primary" %>
+          <%= form.submit "Enviar", class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>

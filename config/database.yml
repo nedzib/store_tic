@@ -79,6 +79,7 @@ test:
 #
 production:
   <<: *default
-  database: store_tic_production
-  username: store_tic
-  password: <%= ENV["STORE_TIC_DATABASE_PASSWORD"] %>
+  url: <%= ENV["DATABASE_URL"] %>
+  database: lines_production
+  username: lines
+  password: <%= ENV["LINES_DATABASE_PASSWORD"] %>
